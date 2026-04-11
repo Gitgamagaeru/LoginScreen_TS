@@ -1,0 +1,36 @@
+---
+title: MASTER.md
+version: 1.2.0
+status: approved
+owner: "@tech-lead"
+created: 2026-01-01
+updated: 2024-03-15
+reviewers:
+  - "@senior-dev"
+  - "@security-team"
+---
+# MASTER.md
+
+## プロジェクト概要
+ - プロジェクト名：[ログイン機能を作成] 
+ - 目的：[ログイン機能を作成する] 
+
+## 技術スタック
+ - フロントエンド：Next.js, TypeScript, Tailwind CSS
+ - バックエンド：Next.js, TypeScript, Prisma
+ - データベース：PostgreSQL
+ - 認証：NextAuth.js
+ 
+## 文書索引
+| 文書 | 説明 | 更新日 | 
+|------|------|--------| 
+| [PROJECT.md](./00-planning/PROJECT.md) | ビジョン・要件 | 2026-01-01 | 
+| [ARCHITECTURE.md](./02-design/ARCHITECTURE.md) | システム設計 | 2026-01-01 | 
+| [DOMAIN.md](./01-context/DOMAIN.md) | ビジネスロジック | 2026-01-01 | 
+| [PATTERNS.md](./03-implementation/PATTERNS.md) | 実装パターン | 2026-01-01 | 
+| [TESTING.md](./04-quality/TESTING.md) | テスト戦略 | 2026-01-01 | 
+| [DEPLOYMENT.md](./05-operations/DEPLOYMENT.md) | 運用手順 | 2026-01-01 |
+
+## 重要な制約
+- [最重要ルール1]
+- [最重要ルール2]
