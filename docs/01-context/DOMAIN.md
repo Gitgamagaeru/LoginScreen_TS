@@ -21,8 +21,12 @@ reviewers:
 ### Account
 - id: UUID
 - userId: UUID（Userとの紐付け）
+- type: string
 - provider: string（Google, GitHubなど）
 - providerAccountId: string
+- access_token: string（OAuth用）
+- refresh_token: string（OAuth用）
+- expires_at: int（有効期限）
 
 ### Session
 - sessionToken: string（一意）

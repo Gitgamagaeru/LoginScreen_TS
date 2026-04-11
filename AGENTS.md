@@ -15,6 +15,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 1. ドキュメントは必ず日本語で作成する
 2. 理解を助けるための補足的な文書は必ずdocs/99-memo/に記載する
 3. テンプレートは順守すること。（記載がない場合でも「なし」と明記する）
+4. srcを追加した際ドキュメントを更新する。
 
 ## プロジェクト仕様 以下の文書を必ず参照してからタスクに着手すること： 
 - docs/MASTER.md（プロジェクト全体の索引） 
