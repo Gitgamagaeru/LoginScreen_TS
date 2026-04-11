@@ -32,6 +32,17 @@ import { auth } from "@/auth"
 // Server Components内で `const session = await auth()` を用いて認証状態をチェックする。
 ```
 
+### Server Actions分離パターン
+```typescript
+// src/lib/actions.ts ("use server"を宣言)
+export async function loginWithXYZ() { /* 認証処理 */ }
+
+// page.tsx などのUI
+import { loginWithXYZ } from "@/lib/actions"
+<form action={loginWithXYZ}>
+```
+UIファイル内に非同期のロジック（`action={async () => ...}`）を直接書かず、別ファイルに明示的に分離して単一責任にする。
+
 ### リポジトリパターン 
 なし（Prismaクライアントを直接利用する）
 

@@ -1,4 +1,5 @@
-import { auth, signOut } from "@/auth"
+import { auth } from "@/auth"
+import { handleSignOut } from "@/lib/actions"
 import Link from 'next/link';
 import { redirect } from "next/navigation";
 
@@ -32,10 +33,7 @@ export default async function Dashboard() {
                   {session.user?.name || session.user?.email || "ユーザー"}
                 </span>
               </div>
-              <form action={async () => {
-                "use server"
-                await signOut()
-              }}>
+              <form action={handleSignOut}>
                 <button type="submit" className="text-sm font-medium text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
                   ログアウト
                 </button>
