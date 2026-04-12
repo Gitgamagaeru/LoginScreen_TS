@@ -4,7 +4,7 @@ version: 1.2.0
 status: approved
 owner: "@tech-lead"
 created: 2026-01-01
-updated: 2026-04-11
+updated: 2026-04-13
 reviewers:
   - "@senior-dev"
   - "@security-team"
@@ -21,8 +21,8 @@ reviewers:
 ## 主要機能
 ### MVP（必須）
 - [ ] メールアドレスとパスワードによる新規登録・ログイン
-- [ ] メール送信機能（登録時の確認メール等）
-- [ ] ソーシャルログイン（Google連携など、NextAuthで容易に実装可能なもの）
+- [ ] メール送信機能（Resendを利用した登録時の確認メール等 - ADR-003）
+- [ ] ソーシャルログイン（Google連携のみ - ADR-005）
 - [ ] ログアウト機能・ログイン状態によるアクセス制御（保護されたページ）
 
 ### Phase 2
