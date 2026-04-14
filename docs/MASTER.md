@@ -31,6 +31,7 @@ reviewers:
 | [TESTING.md](./04-quality/TESTING.md) | テスト戦略 | 2026-04-13 | 
 | [DEPLOYMENT.md](./05-operations/DEPLOYMENT.md) | 運用手順 | 2026-04-13 |
 | [PR_WORKFLOW.md](./05-operations/PR_WORKFLOW.md) | PR運用フロー | 2026-04-14 |
+| [プロジェクト管理](./07-project-management/issues/) | Issue・タスク記録 | 2026-04-14 |
 | [ドキュメント構成ガイド](./99-memo/document-structure-guide.md) | 文書構成の解説 | 2026-04-11 |
 
 ## 重要な制約

@@ -17,25 +17,25 @@ updated: 2026-04-13
 
 ## 開発・実装タスク
 - [ ] コミットメッセージからの `CHANGELOG.md` 自動生成の仕組み（Conventional Commits等）を導入
-- [ ] **NextAuth.js基盤のセットアップ**
+- [ ] **NextAuth.js基盤のセットアップ** [Issue #002](./07-project-management/issues/002-nextauth-setup.md)
   - NextAuth (v5 / Auth.js) の初期化と `auth.config.ts`、 `app/api/auth/[...nextauth]/route.ts` などの構築
-- [ ] **Googleログイン（OAuth）の実装** (ADR-005)
+- [ ] **Googleログイン（OAuth）の実装** (ADR-005) [Issue #003](./07-project-management/issues/003-google-login-implementation.md)
   - `GoogleProvider` の設定
   - UIに「Googleでログイン」ボタンを実装
-- [ ] **メール・パスワード認証（Credentials）の実装** (ADR-001)
-  - サインアップ・ログイン用フォームUIの作成
+- [ ] **メール・パスワード認証（Credentials）の実装** (ADR-001) [Issue #004](./07-project-management/issues/004-credentials-login-implementation.md)
+  - サインアップ・ログイン用フォームUI의作成
   - 8文字以上・半角英数字混在のバリデーション実装
   - `bcryptjs` を用いたパスワードハッシュ化処理とDB保存
-- [ ] **エラーハンドリングと重複登録制限** (ADR-002)
+- [ ] **エラーハンドリングと重複登録制限** (ADR-002) [Issue #005](./07-project-management/issues/005-error-handling-duplicate-email.md)
   - Google/Credentials両方での同一メールアドレス登録をフロント・バックエンドでエラー検知
   - 「既に〇〇で登録されています」というカスタムエラーメッセージのUI表示
-- [ ] **リダイレクト先とルート保護** (ADR-004)
+- [ ] **リダイレクト先とルート保護** (ADR-004) [Issue #006](./07-project-management/issues/006-redirect-and-route-protection.md)
   - ログイン・登録成功時のリダイレクト先を `/dashboard` に設定
   - `middleware.ts` を用いた未ログインユーザーの `/dashboard` へのアクセス制御
-- [ ] **確認メール・トークン送信基盤の構築** (ADR-003)
+- [ ] **確認メール・トークン送信基盤の構築** (ADR-003) [Issue #007](./07-project-management/issues/007-email-token-infrastructure.md)
   - `Resend` と `react-email` を用いたメール送信パッケージの設定
   - 24時間有効トークンの発行と検証ロジックの実装（次フェーズのリセット機能の布石として）
-- [ ] **UIの統合テスト（手動）**
+- [ ] **UIの統合テスト（手動）** [Issue #008](./07-project-management/issues/008-manual-ui-integration-test.md)
   - 全ての認証フローのエッジケース（エラー処理、リダイレクト等）が `TESTING.md` に沿って満たせるか確認
 
 ## 未決定仕様・確認待ち（TBD）
