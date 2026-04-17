@@ -2,20 +2,24 @@
 title: TODO.md
 version: 1.0.0
 status: draft
-owner: "@tech-lead"
+owner: '@tech-lead'
 created: 2026-04-11
-updated: 2026-04-13
+updated: 2026-04-17
 ---
+
 # プロジェクト TODO リスト
 
 ## 設定・インフラ関連
-- [ ] pre-commitフックの設定をする（Markdownの `updated` 自動更新の仕組み等を構築）
+
+- [x] pre-commitフックの設定をする（Markdownの `updated` 自動更新の仕組み等を構築）
 
 ## ドキュメント・整備
+
 - [x] PRを起点とした運用工程の策定・ドキュメント化 (`PR_WORKFLOW.md`)
 - [ ] 各種 `docs/*.md` の詳細な要件やビジネスルールをプロジェクトに合わせて埋める
 
 ## 開発・実装タスク
+
 - [ ] コミットメッセージからの `CHANGELOG.md` 自動生成の仕組み（Conventional Commits等）を導入
 - [ ] **NextAuth.js基盤のセットアップ** [Issue #002](./07-project-management/issues/002-nextauth-setup.md)
   - NextAuth (v5 / Auth.js) の初期化と `auth.config.ts`、 `app/api/auth/[...nextauth]/route.ts` などの構築
