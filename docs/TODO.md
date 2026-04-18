@@ -21,7 +21,7 @@ updated: 2026-04-17
 ## 開発・実装タスク
 
 - [ ] コミットメッセージからの `CHANGELOG.md` 自動生成の仕組み（Conventional Commits等）を導入
-- [ ] **NextAuth.js基盤のセットアップ** [Issue #002](./07-project-management/issues/002-nextauth-setup.md)
+- [x] **NextAuth.js基盤のセットアップ** [Issue #002](./07-project-management/issues/002-nextauth-setup.md)
   - NextAuth (v5 / Auth.js) の初期化と `auth.config.ts`、 `app/api/auth/[...nextauth]/route.ts` などの構築
 - [ ] **Googleログイン（OAuth）の実装** (ADR-005) [Issue #003](./07-project-management/issues/003-google-login-implementation.md)
   - `GoogleProvider` の設定
