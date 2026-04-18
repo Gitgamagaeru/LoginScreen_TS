@@ -1,0 +1,53 @@
+# pre-commitの設定ファイル
+# 詳細: https://pre-commit.com
+
+repos:
+  # 1. pre-commit公式が提供する標準的なフック集
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      # 行末の不要な空白を自動で削除します
+      - id: trailing-whitespace
+      # ファイルの最後が空行で終わるように自動修正します
+      - id: end-of-file-fixer
+      # YAMLファイルの文法エラーがないかチェックします
+      - id: check-yaml
+      # 巨大なファイル（500KB以上）を間違えてコミットするのを防ぎます
+      - id: check-added-large-files
+
+  # 2. プロジェクト固有（Node.jsツール）の設定
+  - repo: local
+    hooks:
+      # Prettierによるコード整形
+      - id: prettier
+        name: prettier
+        # ステージングされたファイルをPrettierで整形します
+        entry: npx prettier --write --ignore-unknown
+        language: system
+        # Markdownは視認性維持のためPrettierの対象から除外します
+        files: \.(js|jsx|ts|tsx|css|scss|json)$
+
+      # ESLintによる静的解析
+      - id: eslint
+        name: eslint
+        # JS/TSファイルを対象にエラーチェックと自動修正（--fix）を行います
+        entry: npx eslint --fix
+        language: system
+        # typesを使わず、拡張子（files）で対象を指定します
+        files: \.[jt]sx?$
+
+      # Markdownファイルの日付を自動更新
+      - id: update-markdown-date
+        name: update-markdown-date
+        # 作成したスクリプトを実行します
+        entry: node scripts/update-markdown-date.mjs
+        language: system
+        files: \.md$
+
+      # コミットメッセージの形式チェック
+      - id: commitlint
+        name: commitlint
+        # conventional commits 形式かどうかをチェックします
+        entry: npx commitlint --edit
+        language: system
+        stages: [commit-msg]
