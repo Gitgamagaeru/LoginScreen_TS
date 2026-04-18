@@ -4,7 +4,7 @@ version: 1.2.0
 status: approved
 owner: '@tech-lead'
 created: 2026-01-01
-updated: 2026-04-17
+updated: 2026-04-19
 reviewers:
   - '@senior-dev'
   - '@security-team'
@@ -35,7 +35,7 @@ reviewers:
 ### APIレイヤー
 
 - ルーティング：Next.js App Router形式に従う。
-- 認証：`src/auth.ts` で一元管理し、`app/api/auth/[...nextauth]/route.ts` にてAPIルートを構築する。
+- 認証：Edge Runtime対応のため、`src/auth.config.ts` (軽量設定) と `src/auth.ts` (Node本体) に分割して一元管理し、`app/api/auth/[...nextauth]/route.ts` にてAPIルートを構築する。
 - 処理呼び出し：`src/lib/actions.ts` にServer Actionsを集約し、UIから呼び出す。
 - エラーハンドリング：NextAuthの標準エラーに準拠。
 
@@ -56,3 +56,4 @@ reviewers:
 - [ADR-003: メール送信プロバイダーの選定](file:///c:/Users/nomur/Documents/100_AiDev/01_Login/docs/06-reference/adr/ADR-003_email_provider.md)
 - [ADR-004: ログイン・登録成功後のリダイレクト先](file:///c:/Users/nomur/Documents/100_AiDev/01_Login/docs/06-reference/adr/ADR-004_redirect_after_login.md)
 - [ADR-005: MVPで実装するソーシャルログインプロバイダーの対象](file:///c:/Users/nomur/Documents/100_AiDev/01_Login/docs/06-reference/adr/ADR-005_social_login_provider.md)
+- [ADR-006: NextAuth (v5) 設定ファイル群の Edge Runtime 対応に向けた分割設計](file:///c:/Users/nomur/Documents/100_AiDev/01_Login/docs/06-reference/adr/ADR-006_nextauth_v5_edge_compatibility_split.md)

@@ -1,67 +1,58 @@
 import NextAuth from 'next-auth';
-import type { NextAuthConfig } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import GitHubProvider from 'next-auth/providers/github';
-import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@auth/prisma-adapter';
-import prisma from './lib/prisma';
+import prisma from '@/lib/prisma';
 import bcrypt from 'bcryptjs';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { authConfig } from './auth.config';
 
-export const config = {
+/**
+ * NextAuth のメイン設定ファイル（Node.js 環境用・バックエンド本体）
+ * authConfig (軽量設定) を継承し、DBアダプターや パスワード照合などの思い処理を統合します。
+ */
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  // 軽量な Edge 設定（ページパスやOAuth、認可ロジック）をすべて引き継ぐ
+  ...authConfig,
+  
+  // ユーザーやセッション情報をDB(PostgreSQL)と同期するためのPrisma連携
   adapter: PrismaAdapter(prisma),
-  session: { strategy: 'jwt' }, // Credentials使用時はJWTが必要
-  pages: {
-    signIn: '/login',
-  },
+  
+  // セッションの管理方式（CredentialsProviderを利用する場合は 'jwt' 必須）
+  session: { strategy: 'jwt' },
+  
+  // すべての認証プロバイダー（OAuth + DB認証）の統合
   providers: [
-    GitHubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
-    }),
+    ...authConfig.providers, // auth.config.ts で定義した GitHub/Google を引き継ぐ
+    
+    // DB照合とパスワード検証を伴うメール/パスワード認証の設定
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
       },
+      // ユーザーが入力した情報を元にログイン可否を判定する処理
       async authorize(credentials) {
+        // バリデーション: 入力値が欠けていればエラー
         if (!credentials?.email || !credentials?.password) return null;
 
+        // DB検索: メールアドレスからユーザーを取得
         const user = await prisma.user.findUnique({
           where: { email: credentials.email as string },
         });
 
-        // パスワードが設定されていない（OAuth限定）アカウントの場合は弾く
+        // 存在チェック: ユーザーが存在しない、またはソーシャル専用アカウント（パスワード未設定）なら弾く
         if (!user || !user.password) return null;
 
+        // パスワード検証: bcrypt でハッシュ化されたパスワードと入力値を照合
         const isPasswordValid = await bcrypt.compare(
           credentials.password as string,
           user.password
         );
         if (!isPasswordValid) return null;
 
+        // 検証成功: セッションを発行する対象としてユーザー情報を返す
         return user;
       },
     }),
   ],
-  callbacks: {
-    async session({ session, token }) {
-      if (token.sub && session.user) {
-        session.user.id = token.sub;
-      }
-      return session;
-    },
-    async jwt({ token, user }) {
-      if (user) {
-        token.sub = user.id;
-      }
-      return token;
-    },
-  },
-} satisfies NextAuthConfig;
-
-export const { handlers, auth, signIn, signOut } = NextAuth(config);
+});
