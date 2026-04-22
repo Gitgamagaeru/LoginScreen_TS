@@ -4,7 +4,7 @@ version: 1.2.0
 status: approved
 owner: '@tech-lead'
 created: 2026-01-01
-updated: 2026-04-19
+updated: 2026-04-23
 reviewers:
   - '@senior-dev'
   - '@security-team'

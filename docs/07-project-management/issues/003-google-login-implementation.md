@@ -1,9 +1,9 @@
 ---
 title: '[Task] Googleログイン（OAuth）の実装'
 id: '#6'
-status: todo
+status: done
 created: 2026-04-14
-updated: 2026-04-17
+updated: 2026-04-23
 labels:
   - auth
   - frontend
@@ -15,14 +15,14 @@ OAuthを用いた利便性の高いログイン手段として、Googleログイ
 
 ## ✅ やること（Todo）
 
-- [ ] Google Cloud Console での OAuth クライアント ID 生成
-- [ ] NextAuth の `GoogleProvider` 設定の追加
-- [ ] ログイン画面への「Googleでログイン」ボタンの実装
+- [x] Google Cloud Console での OAuth クライアント ID 生成
+- [x] NextAuth の `GoogleProvider` 設定の追加
+- [x] ログイン画面への「Googleでログイン」ボタンの実装
 
 ## 🏆 完了条件（Acceptance Criteria）
 
-- [ ] Googleアカウントを用いて正常にサインイン・アカウント作成ができること
-- [ ] ログイン成功後に適切なページへリダイレクトされること
+- [x] Googleアカウントを用いて正常にサインイン・アカウント作成ができること
+- [x] ログイン成功後に適切なページへリダイレクトされること
 
 ## 🔗 関連ドキュメント・Issue
 
