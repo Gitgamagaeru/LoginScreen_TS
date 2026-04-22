@@ -3,7 +3,7 @@ title: '[Task] Googleログイン（OAuth）の実装'
 id: '#6'
 status: done
 created: 2026-04-14
-updated: 2026-04-17
+updated: 2026-04-23
 labels:
   - auth
   - frontend

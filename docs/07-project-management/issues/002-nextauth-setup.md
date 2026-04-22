@@ -3,7 +3,7 @@ title: '[Task] NextAuth.js基盤のセットアップ'
 id: '#5'
 status: done
 created: 2026-04-14
-updated: 2026-04-17
+updated: 2026-04-23
 labels:
   - auth
   - backend
