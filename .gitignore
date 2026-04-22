@@ -42,8 +42,8 @@ next-env.d.ts
 
 /src/generated/prisma
 
-# Local memos
-docs/99-memo/
+# Local memos (tracked)
+# docs/99-memo/
 
 # VSCode
 .vscode/
