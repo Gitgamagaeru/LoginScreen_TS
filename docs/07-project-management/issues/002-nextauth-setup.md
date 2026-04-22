@@ -1,7 +1,7 @@
 ---
 title: '[Task] NextAuth.js基盤のセットアップ'
 id: '#5'
-status: todo
+status: done
 created: 2026-04-14
 updated: 2026-04-17
 labels:
@@ -15,15 +15,15 @@ labels:
 
 ## ✅ やること（Todo）
 
-- [ ] NextAuth.js (v5) のライブラリインストール
-- [ ] `auth.ts` (または `auth.config.ts`) での初期設定定義
-- [ ] `app/api/auth/[...nextauth]/route.ts` の作成
-- [ ] 環境変数 (`AUTH_SECRET` 等) の整備
+- [x] NextAuth.js (v5) のライブラリインストール
+- [x] `auth.ts` (または `auth.config.ts`) での初期設定定義
+- [x] `app/api/auth/[...nextauth]/route.ts` の作成
+- [x] 環境変数 (`AUTH_SECRET` 等) の整備
 
 ## 🏆 完了条件（Acceptance Criteria）
 
-- [ ] 認証関連のライブラリが正しく動作可能な状態であること
-- [ ] APIルートが構築され、認証リクエストを受け取れること
+- [x] 認証関連のライブラリが正しく動作可能な状態であること
+- [x] APIルートが構築され、認証リクエストを受け取れること
 
 ## 🔗 関連ドキュメント・Issue
 
